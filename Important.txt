@@ -1,0 +1,138 @@
+C:\Users\asus\eclipse-workspace\javaWebApplication
+
+
+
+kubectl create deployment sebastin --image=nginx:latest
+
+kubectl get deployments
+
+kubectl get pods
+
+kubectl expose deployment siddhesh --port=8080 --type=LoadBalancer
+
+
+kubectl get services
+
+minikube service sebastin
+
+
+
+
+--------create webapp demo project ------
+
+
+install nodejs
+
+for react application ->  npx create-react-app testapp
+
+
+..create dockerfile..
+
+FROM node:20
+WORKDIR /myapp
+COPY . .
+RUN npm install
+CMD ["npm", "start"]
+
+.... create images of project .......
+
+
+docker build -t sebastinunknow/sebastin:02 .          where sebastinunknow/sebastin = repository name  ,:02 = is version we made
+
+
+ docker push sebastinunknow/sebastin:02    this command is used to push image in docker hub  this is image name sebastinunknow/sebastin:02
+
+
+
+kubectl set image deployment web-app sebastin=sebastinunknow/sebastin:03
+
+
+
+
+
+kubectt rollout undo deployment web-app
+
+
+
+
+
+
+
+
+
+
+
+---------------node application deployment-----------
+
+
+docker build -t sebastinunknow/node-demo-app:01 .
+
+
+docker push sebastinunknow/node-demo-app:01
+
+
+kubectl create deployment node-app --image=sebastinunknow/node-demo-app:01
+
+
+kubectl get deployments
+
+
+kubectl get pods
+
+
+kubectl expose deployment node-app --port=3080 --type=LoadBalancer
+
+kubectl get services
+
+minikube service node-app
+
+
+-- to create multiple instance of app to avoid Downtime --
+
+
+kubectl scale deployment node-app --replicas=4
+kubectl scale deployment node-app --replicas=2       from 4 pods it becomes 2
+
+
+------    .yml -------------
+
+
+kubectl apply -f deployment-node.yml
+
+
+
+
+------ This is yml file start--------
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Unique key of the Deployment instance
+  name: node-app1
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-app1
+  template:
+    metadata:
+      labels:
+        # Apply this label to pods and default
+        # the Deployment label selector to this value
+        app: node-app1
+    spec:
+      containers:
+      - name: node-app1
+        # Run this image
+        image: sebastinunknow/node-demo-app:0
+
+
+------- yml file end -------
+
+
+
+
+ 
+ 
