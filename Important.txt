@@ -132,6 +132,13 @@ spec:
 ------- yml file end -------
 
 
+-----------------interview start-----------------------
+
+
+systemctl start docker   #this 
+ 
+
+
 
 
  
