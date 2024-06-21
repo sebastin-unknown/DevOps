@@ -135,7 +135,7 @@ spec:
 -----------------interview start-----------------------
 
 
-systemctl start docker   #this 
+systemctl start docker   #this command is used to start service in linux 
  
 
 
