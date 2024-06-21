@@ -135,10 +135,11 @@ spec:
 -----------------interview start-----------------------
 
 
-== systemctl start docker   #this command is used to start service in linux 
+== systemctl start docker   # This command is used to start service in linux 
 == minikube start # This command is to start minikube culster
 == kubectl create deployment Sebastin --image=nginx:latest # This command is used to create deployment 
-== kubectl get deployments #This command is used to get the deploynment
+== kubectl get deployments  # This command is used to get the deploynment
+
 
  
 
