@@ -139,7 +139,8 @@ spec:
 == minikube start # This command is to start minikube culster
 == kubectl create deployment Sebastin --image=nginx:latest # This command is used to create deployment 
 == kubectl get deployments  # This command is used to get the deploynment
-
+==kubectl expose deployment sebastin --port=80 --type=LoadBalancer # This Command is used for port mapping 
+== kubectl get services # This Command is used to get services 
 
  
 
