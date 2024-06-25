@@ -168,6 +168,8 @@ CMD ["npm", "start"]
 
 == kubectl logs my-webapp-7d6b98bc47-nbmzl    # To get logs where 'my-webapp-7d6b98bc47-nbmzl' is pods name
 
+== kubectl describe pods  #This command is used get information about pods.
+
 
 
 
