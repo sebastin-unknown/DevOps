@@ -136,13 +136,49 @@ spec:
 
 
 == systemctl start docker   # This command is used to start service in linux 
+== minikube status  #This command is used see the status (running or not)
 == minikube start # This command is to start minikube culster
 == kubectl create deployment Sebastin --image=nginx:latest # This command is used to create deployment 
 == kubectl get deployments  # This command is used to get the deploynment
 ==kubectl expose deployment sebastin --port=80 --type=LoadBalancer # This Command is used for port mapping 
 == kubectl get services # This Command is used to get services 
 
- 
+
+-------------------Dockerfile "Start"--------------------------
+
+FROM node           
+
+WORKDIR /myapp
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+-------------------Dockerfile "end"--------------------------
+
+# To push image in dockerhub first create repository in docker 
+
+== docker build -t sebastinunknow/node-demo-app:01 .  #This create a image in localrepository where "sebastinunknow/node-demo-app:" is repository name and "01" is tag i.e version
+
+== docker push sebastinunknow/node-demo-app:01    #This Command is used push the image from local to public repository
+
+== kubectl logs my-webapp-7d6b98bc47-nbmzl    # To get logs where 'my-webapp-7d6b98bc47-nbmzl' is pods name
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
