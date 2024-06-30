@@ -142,6 +142,7 @@ spec:
 == kubectl get deployments  # This command is used to get the deploynment
 ==kubectl expose deployment sebastin --port=80 --type=LoadBalancer # This Command is used for port mapping 
 == kubectl get services # This Command is used to get services 
+== minikube service "service_name" #This command is used to open the project in default browser
 
 
 -------------------Dockerfile "Start"--------------------------
@@ -170,6 +171,9 @@ CMD ["npm", "start"]
 
 == kubectl describe pods  #This command is used get information about pods.
 
+== #kubernetes also self heals itself automatically. If we want to avoid downtime we can create multiple instance of same image 
+
+== kubectl scale deployment node-app --replicas=4 #This command is used to 
 
 
 
