@@ -235,6 +235,8 @@ spec:
 
 == kubectl apply -f service.yml  #This command is used run yml file where service.yml is the name of the ymal file
 
+== 
+
 
 
 
