@@ -176,7 +176,7 @@ CMD ["npm", "start"]
 == kubectl scale deployment node-app --replicas=4 #This command is used to 
 
 
-------------yaml file -----------------------------------------
+------------yaml file for deployment start-----------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -205,11 +205,35 @@ spec:
 
 == kubectl apply -f deployment.yml  #This command is used run yml file where deployment.yml is the name of the ymal file
 
-==
 
 
+------------------------ymal file for service -------------------------
+
+apiVersion: apps/v1
+kind: Service
+apiVersion: v1
+metadata:
+  # Unique key of the Service instance
+  name: service-my-node-app
+spec:
+  ports:
+    # Accept traffic sent to port 80
+    - name: http
+      port: 8080  
+      targetPort: 3002
+  selector:
+    # Loadbalance traffic across Pods matching
+    # this label selector
+    app: node-app
+  # Create an HA proxy in the cloud provider
+  # with an External IP address - *Only supported
+  # by some cloud providers*
+  type: LoadBalancer  
 
 
+------------------ymal file for service END -------------
+
+== kubectl apply -f service.yml  #This command is used run yml file where service.yml is the name of the ymal file
 
 
 
