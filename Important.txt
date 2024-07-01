@@ -176,6 +176,42 @@ CMD ["npm", "start"]
 == kubectl scale deployment node-app --replicas=4 #This command is used to 
 
 
+------------yaml file -----------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Unique key of the Deployment instance
+  name: my-node-app
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        # Apply this label to pods and default
+        # the Deployment label selector to this value
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        # Run this image
+        image: sebastinunknow/test:01
+
+
+------------yaml file  END ----------------------
+
+== kubectl apply -f deployment.yml  #This command is used run yml file where deployment.yml is the name of the ymal file
+
+==
+
+
+
+
+
+
 
 
 
