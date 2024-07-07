@@ -1,0 +1,22 @@
+
+
+Ansible link = https://www.youtube.com/watch?v=Or6k2UcKeN4
+
+Terraform link = https://www.youtube.com/watch?v=k09fTeW3_Qs&t=794s
+
+Linux link = https://www.youtube.com/watch?v=4IIlZRabmV8
+
+git link = https://www.youtube.com/watch?v=Uz_mTOQL9Tw
+
+java maven link = https://www.youtube.com/watch?v=x8sMN4tossY
+
+Jenkins link = https://www.youtube.com/watch?v=_fmX31VFbL8
+
+Docker link = https://www.youtube.com/watch?v=lcQfQRDAMpQ
+
+Kubernetes link = https://www.youtube.com/results?search_query=kubernetes+tutorial+for+beginners
+
+Grafana link = https://www.youtube.com/watch?v=QwGm5m4AxNA&t=325s 
+
+
+
