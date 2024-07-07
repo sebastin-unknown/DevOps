@@ -2,3 +2,4 @@
 == docker image ls # docker image ls command is used to list all the Docker images stored locally on your system.
 == docker run [Image ID] # This command creates and starts a new container from the image with the ID e9f50c18a0e6.
 == docker run -p -d 3000:3000 [Image ID] # This command is used for porting mapping & -d flag is used for detached mode.
+
