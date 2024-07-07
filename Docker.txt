@@ -5,4 +5,5 @@
 == docker ps # This command lists only the running containers
 == docker ps -a # This command is used to list all containers (running and non-running)
 == docker rm [ID or container name] # This command is used to remove the container
+== 
 
