@@ -17,7 +17,7 @@ $ sudo apt install ansible
 step1 - in root user == cd /etc/ansible
 step2 - ls -ltr (roles, host, ansible.cfg)
 step3 - less ansible.cfg 
-step4 - ansible-config init --disable -t all > ansible.cfg
+step4 - ansible-config init --disable -t all > ansible.cfg   (This command we get after less ansible.cfg command)
 
 ------- After installation steps ended -----------------------------
 
@@ -34,6 +34,30 @@ step4 - ansible-config init --disable -t all > ansible.cfg
 xyz.yml    # 
 
 == ansible-playbook ["File Name"]  # This command is used to run ansible playbook file
+== ansible-playbook --syntax-check ["filename"]  # This command is used for syntax check of yml file
+
+
+
+
+
+------------ Ansible file to print output -----------------
+- name: First Basic PB
+  hosts: localhost
+
+  tasks:
+  - name: test connectivity
+    ping:
+  - name: "Print Output"
+    debug: msg="this Is output"
+
+----------- Ansible file to print output END ---------(where ping and debug is module)
+
+
+
+
+
+
+
 
 
 
