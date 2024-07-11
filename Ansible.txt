@@ -12,11 +12,29 @@ $ sudo apt install ansible
 
 --------------Steps ended -----------------------------------
 
-# After installation we have to do following steps #
+--------After installation we have to do following steps ---------
 
 step1 - in root user == cd /etc/ansible
 step2 - ls -ltr (roles, host, ansible.cfg)
 step3 - less ansible.cfg 
 step4 - ansible-config init --disable -t all > ansible.cfg
 
-# after installation steps ended #
+------- After installation steps ended -----------------------------
+
+------------ Create First ansible-----------------------
+
+---
+- name: First Basic PB
+  hosts: localhost
+
+  tasks:
+  - name: test connectivity
+    ping:  
+------------- File Created --------------------------
+xyz.yml    # 
+
+== ansible-playbook ["File Name"]  # This command is used to run ansible playbook file
+
+
+
+
