@@ -3,3 +3,20 @@ https://www.youtube.com/watch?v=Jw4l1PcrhhY&ab_channel=UnusAWS
 
 Ansible dowload link
 https://docs.ansible.com/ansible/latest/installation_guide/index.html
+
+------------ Steps To install Ansible in Ubuntu ------------- 
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+--------------Steps ended -----------------------------------
+
+# After installation we have to do following steps #
+
+step1 - in root user == cd /etc/ansible
+step2 - ls -ltr (roles, host, ansible.cfg)
+step3 - less ansible.cfg 
+step4 - ansible-config init --disable -t all > ansible.cfg
+
+# after installation steps ended #
