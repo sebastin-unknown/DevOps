@@ -53,6 +53,29 @@ xyz.yml    #
 ----------- Ansible file to print output END ---------(where ping and debug is module)
 
 
+----------- Ansible file to install ngnix-----------------------
+
+---
+- name: Install and Start the service
+  hosts: localhost
+  vars:
+
+  tasks:
+  - name: Installing nginx
+    apt:
+      name: nginx
+      state: present
+
+
+  - name: Starting the nginx service
+    service:
+      name: nginx
+      state: started
+      enabled: true
+
+-------------- Ansible file to install ngnix  END ---------------
+ansible-playbook 01_app_install.yml  # This command is used to run the ansible file
+
 
 
 
