@@ -136,12 +136,55 @@ eg :-  In local =  -rw-r--r-- root root myfile.txt
     copy:
       src: /root/myfile.txt
       dest: /tmp/
-      owner: paul
-      group: paul
+      owner: sebastin
+      group: sebastin
 
 
 --------------- Ansible files used to copy files on remote server with owner and group (END)-----------------------------
+eg :-  In local =  -rw-r--r-- root root myfile.txt
+       In Remote=  -rw-r--r-- sebastin sebastin myfile.txt
 
+
+--------------- Ansible files used to copy files on remote server with permission ------------------------------
+
+---
+- name: Copying files to remote
+  hosts: all
+
+  tasks:
+  - name: Copy files
+    copy:
+      src: /root/myfile.txt
+      dest: /tmp/
+      owner: sebastin
+      group: sebastin
+      mode: ugo=rw
+     
+------------- Ansible files used to copy files on remote server with permission (END)------------------------------
+# mode is used to change permission 
+eg :-  In local =  -rw-r--r-- root root myfile.txt
+       In Remote=  -rw-rw-rw- sebastin sebastin myfile.txt
+
+
+------------ Ansible files used to copy files on remote server with permission and backup --------------------------
+
+---
+- name: Copying files to remote
+  hosts: all
+
+  tasks:
+  - name: Copy files
+    copy:
+      src: /root/myfile.txt
+      dest: /tmp/
+      owner: paul
+      group: paul
+      mode: ugo=rw
+      backup: true
+
+--------------- Ansible files used to copy files on remote server with permission and backup (END)------------------------------
+# backup is used when we copy and paste the file ,if the destinatiion as an file with same then there is chance to overwrite 
+so to avoid it we use backup which help to create an backup of the file which is present inside destination folder.
 
 
 
