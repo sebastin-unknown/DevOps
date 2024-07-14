@@ -11,7 +11,7 @@ $ sudo apt install software-properties-common
 $ sudo add-apt-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible
 
---------------Steps ended -----------------------------------
+--------------Steps (END) -----------------------------------
 
 --------After installation we have to do following steps ---------
 
@@ -20,7 +20,7 @@ step2 - ls -ltr (roles, host, ansible.cfg)
 step3 - less ansible.cfg 
 step4 - ansible-config init --disable -t all > ansible.cfg   (This command we get after less ansible.cfg command)
 
-------- After installation steps ended -----------------------------
+------- After installation steps (END) -----------------------------
 
 ------------ Create First ansible-----------------------
 
@@ -51,7 +51,7 @@ xyz.yml    #
   - name: "Print Output"
     debug: msg="this Is output"
 
------------ Ansible file to print output END ---------(where ping and debug is module)
+----------- Ansible file to print output (END) ---------(where ping and debug is module)
 
 
 ----------- Ansible file to install ngnix-----------------------
@@ -74,12 +74,73 @@ xyz.yml    #
       state: started
       enabled: true
 
--------------- Ansible file to install ngnix  END (apt, service are module) ---------------
+-------------- Ansible file to install ngnix  (END) (apt, service are module) ---------------
 ansible-playbook 01_app_install.yml  # This command is used to run the ansible file
 
+- To acess remote servers we have to add remote IP's inside host file
+(Location of host file is cd /etc/ansible )
+
+== ansible all -m ping ( all is used to ping all the remote servers which is written inside host file)
+
+----------- Ansible file to install ngnix in remote servers-----------------------
+
+---
+- name: Install and Start the service
+  hosts: all
+  vars:
+
+  tasks:
+  - name: Installing nginx
+    apt:
+      name: nginx
+      state: present
 
 
+  - name: Starting the nginx service
+    service:
+      name: nginx
+      state: started
+      enabled: true
 
+-------------- Ansible file to install ngnix in remote sever (END) (apt, service are module) ---------------
+== systemctl status ngnix # This is an linux command to which is used to check the current status of service 
+
+
+--------------- Ansible files used to copy files on remote server -----------------------------------
+---
+- name: Copying files to remote
+  hosts: all
+
+  tasks:
+  - name: Copy files
+    copy:
+      src: /root/myfile.txt
+      dest: /tmp/
+
+--------------- Ansible files used to copy files on remote server (END) -----------------------------------
+one demerit in this is that the file permission what we have is local same goes to the file after it get pasted in remote server 
+eg :-  In local =  -rw-r--r-- root root myfile.txt
+       In Remote=  -rw-r--r-- root root myfile.txt
+
+# so to avoid this following code is used 
+
+
+--------------- Ansible files used to copy files on remote server with owner and group ------------------------------
+
+---
+- name: Copying files to remote
+  hosts: all
+
+  tasks:
+  - name: Copy files
+    copy:
+      src: /root/myfile.txt
+      dest: /tmp/
+      owner: paul
+      group: paul
+
+
+--------------- Ansible files used to copy files on remote server with owner and group (END)-----------------------------
 
 
 
