@@ -1,1 +1,6 @@
-github
+SETUP
+Configuring user information used across all local repositories
+
+== git config --global user.name "[Firstname-Lastname]"
+== git config --global user.email "[valid-email]"
+
